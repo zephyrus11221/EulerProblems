@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+  int sum=0;
+  int ctr;
+  for(ctr=0;ctr-999;ctr++){
+    if(!ctr%3||!ctr%5){
+      sum+=ctr;
+    }
+  }
+  printf("%d", sum);
+  return sum;
+}
