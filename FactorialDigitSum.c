@@ -2,15 +2,19 @@
 #include <stdlib.h>
 int main(){
   int sum = 0;
-  int prod = 100;
+  long prod = 100;
   int ctr = 99;
   while (ctr>0){
-    prod*=ctr-1;
+    printf("%ld\n", prod);
+    prod*=ctr;
     ctr--;
   }
-  while (prod){
+  printf("%ld\n", prod);
+  while (prod>0){
+    printf("%ld\n", prod);
     sum+=prod%10;
     prod/=10;
   }
+  printf("%d\n", sum);
   return sum;
 }

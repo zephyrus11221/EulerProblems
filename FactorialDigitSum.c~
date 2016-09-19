@@ -8,7 +8,9 @@ int main(){
     prod*=ctr-1;
     ctr--;
   }
-  while (prod>0){
+  while (prod){
+    sum+=prod%10;
+    prod/=10;
   }
   return sum;
 }
