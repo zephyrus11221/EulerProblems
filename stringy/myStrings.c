@@ -25,11 +25,27 @@ char * mystrcpy(char *s1, char *s2){
   char *cp2 = s2;
   int ctr = 0;
   while (cp2[ctr] && cp1[ctr]){
-    printf ("%c\n", cp1[ctr]);
     cp1[ctr] = cp2[ctr];
     ctr++;
   }
+  s1[ctr] = 0;
   return cp1;
+}
+
+char * mystrcat(char *s1, char *s2){
+  char *cp = s1;
+  int ctr = 0;
+  int l = mystrlen(cp);
+  printf ("%d\n", mystrlen(cp));
+
+  while (s2[ctr]){
+    printf ("%c\n", s2[ctr]);
+    printf ("%d\n", ctr);
+    cp[ctr+l] = s2[ctr];
+    ctr++;
+  }
+  cp[l+ctr] = 0;
+  return cp;
 }
 
 int main(){
@@ -48,11 +64,25 @@ int main(){
   printf("Real strchr(b) returns: %s\n\n\n", strchr("hoo lawdy", 'l'));
   
   //strcpy
-  printf("Testing strlen on (a) 'ples no', 'oyes', and (b) 'ehrmahgerd', 'ahrmo'\n");
-  printf("My strlen(a) returns: %s\n", mystrcpy("ples no", "oyes"));
-  printf("Real strlen(a) returns: %s\n", strcpy("ples no", "oyes"));    
-  printf("My strlen(b) returns: %s\n", mystrcpy("ehrmahgerd", "ahrmo"));
-  printf("Real strlen(b) returns: %s\n\n\n", strcpy("ehrmahgerd", "ahrmo"));      
+  printf("Testing strcpy on (a) 'ples no', 'oyes', and (b) 'ehrmahgerd', 'ahrmo'\n");
+  char t11[20] = "ples no";
+  char t12[20] = "oyes";
+  char t21[20] = "ehrmahgerd";
+  char t22[20] = "ahrmo";
+  printf("My strcpy(a) returns: %s\n", mystrcpy(t11, t12));
+  printf("Real strcpy(a) returns: %s\n", strcpy(t11, t12));    
+  printf("My strcpy(b) returns: %s\n", mystrcpy(t21, t22));
+  printf("Real strcpy(b) returns: %s\n\n\n", strcpy(t21, t22));      
   
+  //strcat
+  char t31[20] = "ples no";
+  char t311[20] = "ples no";  
+  char t41[20] = "ehrmahgerd";
+  char t411[20] = "ehrmahgerd";
+  printf("Testing strcat on (a) 'ples no', 'oyes', and (b) 'ehrmahgerd', 'ahrmo'\n");
+  printf("My strcat(a) returns: %s\n", mystrcat(t31, t12));
+  printf("Real strcat(a) returns: %s\n", strcat(t311, t12));    
+  printf("My strcat(b) returns: %s\n", mystrcat(t41, t22));
+  printf("Real strcat(b) returns: %s\n\n\n", strcat(t411, t22));
   return 21;
 }
